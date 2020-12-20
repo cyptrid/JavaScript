@@ -7,18 +7,19 @@
 </head>
 <body>
 <script>  
-    //LATIHAN JURAGAN ANGKOT                          
-    // menampilkan Angkot No. 1 - 6 beroperasi dengan baik.
-    var angkot = 1;
-    var angkotBeroperasi = 6;
-    while(angkot <= angkotBeroperasi){
-    console.log('Angkot No.' + angkot + ' beroperasi dengan baik');
-    angkot++;
-    }
-    // menampilkan Angkot No. 7 -10  beroperasi dengan baik.
-    for(nilaiAwal = angkotBeroperasi + 1; nilaiAwal <= 10; nilaiAwal++){
-    console.log('Angkot No.' + nilaiAwal + 'sedang tidak beroperasi')
-    }
+    //LATIHAN JURAGAN ANGKOT Menggunakan IF                         
+       
+        var angkotBeroperasi = 6;
+        var jumlahAngkot = 10;
+                // menampilkan Angkot No. 1 - 6 beroperasi dengan baik.  
+        for( nilaiAwal = 1; nilaiAwal <= jumlahAngkot; nilaiAwal++  ){
+            if(nilaiAwal <= 6){
+                console.log('Angkot No.' + nilaiAwal + ' Sedang beroperasi');
+            }else{
+                // menampilkan Angkot No. 7 - 10 beroperasi dengan baik.  
+                console.log('Angkot No.' + nilaiAwal + ' Sedang tidak beroperasi');
+            }
+        }
 </script>
 </body>
 </html>
