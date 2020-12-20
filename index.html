@@ -6,28 +6,26 @@
     <title>LATIHAN JAVASCRIPT</title>
 </head>
 <body>
-<script>
-    //OBJEK
-        //membuat objek
-        //Objek Literal
+<script>                            
+        // //Function Declaration
+        function buatObjectMahasiswa(nama, nrp, email, jurusan){
+            var mhs = {};
+            mhs.nama = nama;
+            mhs.nrp = nrp;
+            mhs.email = email;
+            mhs.jurusan = jurusan;
+            return mhs;
+        }
 
-        var obj = {};
-        obj.halo = function(){
+        var mhs3 = buatObjectMahasiswa('Ikhdanul widad joban', '042065278', 'jikhdan@gmail.com', 'SI');
+        var mhs4 = buatObjectMahasiswa('Akhdanul widad joban', '042065278', 'joban@gmail.com', 'SI');
+        console.log(mhs3);
+        console.log(mhs4);
+
+        function halo(){
             console.log('halo');
         }
-        obj.halo();
-        
-        // Contoh 
-        var mhs = {
-            nama : "ikhdanul widad joban",
-            umur : 20,
-            ips : [3.00, 2.50, 3.20],
-            alamat : {
-                jalan : "JL. abc No. 123",
-                Kota : "Bogor",
-                provinsi : "Jawa Barat"
-            }
-        }       
+        halo(); 
 </script>
 </body>
 </html>
