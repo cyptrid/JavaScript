@@ -7,12 +7,11 @@
 </head>
 <body>
 <script>
-       // Control Flow Kondisional
-        var angka = prompt('Masukkan angka :');
-        if(angka % 2 === 0){
-            alert(angka + ' adalah bilangan GENAP');
-        }else{
-            alert(angka + ' adalah bilangan GANJIL');
+       //Pengulangan di berhentikan oleh user
+        var ulang = prompt('masukkan angka:');
+        while(ulang){
+            console.log('test');
+            ulang = confirm('lagi?');
         }
 </script>
 </body>
