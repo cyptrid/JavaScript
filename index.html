@@ -7,25 +7,23 @@
 </head>
 <body>
 <script>                            
-        // //Function Declaration
-        function buatObjectMahasiswa(nama, nrp, email, jurusan){
-            var mhs = {};
-            mhs.nama = nama;
-            mhs.nrp = nrp;
-            mhs.email = email;
-            mhs.jurusan = jurusan;
-            return mhs;
-        }
-
-        var mhs3 = buatObjectMahasiswa('Ikhdanul widad joban', '042065278', 'jikhdan@gmail.com', 'SI');
-        var mhs4 = buatObjectMahasiswa('Akhdanul widad joban', '042065278', 'joban@gmail.com', 'SI');
-        console.log(mhs3);
-        console.log(mhs4);
-
-        function halo(){
+       // CONSTRUCTOR
+       function Halo(){
             console.log('halo');
         }
-        halo(); 
+        new Halo();
+
+        // Contoh
+
+        function Mahasiswa(nama, nrp, email, jurusan){
+            //var this = {}
+            this.nama = nama;
+            this.nrp = nrp;
+            this.email = email;
+            this.jurusan = jurusan;
+            //return this;
+        }
+        var mhs4 = new Mahasiswa('Doddy', '123131', 'doddy@gmail.com', 'SE');
 </script>
 </body>
 </html>
