@@ -7,21 +7,16 @@
 </head>
 <body>
 <script>  
-    // Latihan Pengkondisian SWITCH
-    var item = prompt('masukkan nama makanan / minuman: \n (cth: nasi, burger, susu) ');
-    switch(item){
-        case 'nasi':
-        case 'susu':
-            alert('Makanan / Minuman SEHAT');
-            break;
-        case 'burger':
-            alert('Makanan / Minuman TIDAK SEHAT');
-            break;
-    
-        default:
-            alert('bukan makanan / minuman');
-            break;
-    }
+   
+// LATIHAN PENGULANGAN & PENGKONDISIAN BERSARANG
+var s = '';
+for(var i = 10; i > 0 ; i--){
+    for(var j = 0; j < i; j++){
+        s += '*';
+      }
+    s += '\n';  
+}
+console.log(s);
 
 </script>
 </body>
