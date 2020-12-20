@@ -7,17 +7,14 @@
 </head>
 <body>
 <script>
-      //ARGUMENTS
-        function tambah(){
-            var hasil = 0;
-            for(var i = 0; i < arguments.length; i++){
-                hasil += arguments[i];
-            }
-            return hasil;
+      //SCOPE
+        //global scope / window scope
+        var a = 1;
+        function test(){
+            var a = 2;
         }
-
-        var coba = tambah(1,2,3,4,5);
-        console.log(coba);
+        console.log(a)
+    
 </script>
 </body>
 </html>
