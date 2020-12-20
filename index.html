@@ -7,13 +7,21 @@
 </head>
 <body>
 <script>
-     //FAKTORIAL
-        function faktorial(n){
-            if ( n === 0) return 1;
-            return n * faktorial(n-1);
-        }
+   //ARRAY 
+        //1. Menambahkan array
+        var mhs = ['ikhdan', 'widad', 'joban'];
+        console.log(mhs);
+        
+        //2. menghapus array
+        var mhs =['ikhdan', 'widad', 'joban'];
+        mhs[1]= undefined;
+        console.log(mhs);
 
-        console.log(faktorial(5));
+        //3. manipulasi array (Length)
+        var mhs = ['ikhdan', 'widad', 'joban'];
+        for(var i = 0; i < mhs.length; i++){
+            console.log('Mahasiswa ke ' + (i+1) + ' ' + mhs[i] );
+        }
     
 </script>
 </body>
