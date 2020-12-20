@@ -7,19 +7,17 @@
 </head>
 <body>
 <script>
-      //PARAMTER DAN ARGUMEN
-        // Parameter
-        function tambah(a,b){
-            return a + b;
+      //ARGUMENTS
+        function tambah(){
+            var hasil = 0;
+            for(var i = 0; i < arguments.length; i++){
+                hasil += arguments[i];
+            }
+            return hasil;
         }
 
-        function kali(a,b){
-            return a * b;
-        }
-
-        // Argumen
-        var hasil = kali(tambah(1,2), tambah(3,4));
-        console.log(hasil);
+        var coba = tambah(1,2,3,4,5);
+        console.log(coba);
 </script>
 </body>
 </html>
