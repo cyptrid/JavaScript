@@ -7,22 +7,18 @@
 </head>
 <body>
 <script>
-      //Contoh Kasus Pengkondisian Switch 
-        var angka = parseInt(prompt('masukkan angka :'));
+      //Membuat function dan contoh, menghitung volume 2 kubus
+        function jumlahVolumeDuaKubus(a, b){
+            var volumeA;
+            var volumeB;
+            var total;
 
-        switch(angka){
-            case 1:
-                alert('anda memasukkan angka 1');
-                break;
-            case 2:
-                alert('anda memasukkan angka 2');
-                break;
-            case 3:
-                alert('anda memasukkan angka 3');
-                break;
-            default:
-                alert('angka yang anda masukkan salah');
-                break;
+            volumeA = a * a * a;
+            volumeB = b * b * b;
+
+            total = volumeA + volumeB;
+
+            return total;
         }
 </script>
 </body>
