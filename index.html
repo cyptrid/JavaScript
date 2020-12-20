@@ -7,13 +7,16 @@
 </head>
 <body>
 <script>
-      //SCOPE
-        //global scope / window scope
-        var a = 1;
-        function test(){
-            var a = 2;
+      //REKURSIF
+        function tampilAngka(n){
+            //base case
+            if(n ==0)return;
+
+            console.log(n);
+            return tampilAngka(n-1);
         }
-        console.log(a)
+
+        tampilAngka(10);
     
 </script>
 </body>
