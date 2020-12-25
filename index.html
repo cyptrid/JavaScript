@@ -7,63 +7,115 @@
 </head>
 <body>
 <script>  
-  
-var penumpang = [];
+//  Cara membuat Object pada JavaScript
+//1. Object Literal
+// Problem : tidak efektif untuk object yang banyak
+    // let mahasiswa = {
+    //     nama: 'ikhdanul widad joban',
+    //     energi: 10,
+    //     makan: function(porsi){
+    //         this.energi = this.energi + porsi;
+    //         console.log(`selamat datang ${this.nama}, selamat makan`);
+    //     }
+    // }
 
-var tambahPenumpang = function(namaPenumpang, penumpang){
- // jika angkot kosong
- if(penumpang.length == 0){
-    // tambah penumpang di awal array
-    penumpang.push(namaPenumpang);
-    // kembalikan isi array & keluar dari function
-    return penumpang;
-}
-        // else
-        else{
-            //telusuri kursi dari awal
-        for(var i = 0; i <= penumpang.length; i++){
-                //jika ada kursi kosong 
-                if(penumpang[i] == undefined ){
-                    //tambah penumpang di kursi tersebut
-                    penumpang[i] = namaPenumpang;
-                    //kembalikan isi array & keluar dari function
-                    return penumpang;
-                }
-                // jika sudah ada nama yang sama
-                else if(penumpang[i] == namaPenumpang){
-                    // tampilkan pesan kesalahannya
-                    console.log(namaPenumpang + ' sudah dalam angkot');
-                    //kembalikan isi array & keluar dari function
-                    return penumpang;
-                }
-                // jika seluruh kursi terisi
-                else if( i == penumpang.length ){
-                    // tambah penumpang di akhir array
-                    penumpang.push(namaPenumpang);
-                    //kembalikan isi array & keluar dari function
-                    return penumpang;
-                }
-            }
-        }                
-}
 
-var hapusPenumpang = function(namaPenumpang, penumpang){
-    if(penumpang.length == 0){
-        console.log('angkot masih kosong');
-        return penumpang;
-    }else{
-        for(var i = 0; i <= penumpang.length; i++){
-            if(penumpang[i] == namaPenumpang){
-                penumpang[i] = undefined;
-                return penumpang;
-            }else if(i == penumpang.length){
-            console.log (namaPenumpang + ' tidak ada di angkot');
-            return penumpang;
-            }
-        }
-    }
-    
-}
+    //2. Function Declaration
+//     const methodMahasiswa = {
+//         makan :  function(porsi){
+//              this.energi += porsi;
+//              console.log(`Hallo ${this.nama}, selamat makan`);
+//          },
+        
+//          main : function(jam){
+//              this.energi -= jam;
+//              console.log(`Halo ${this.nama}, selamat bermain`);
+//          }
+//     };
+
+//     function Mahasiswa(nama, energi){
+//         let mahasiswa = {};
+//         mahasiswa.nama = nama;
+//         mahasiswa.energi = energi;
+//         mahasiswa.makan = methodMahasiswa.makan;
+//         mahasiswa.main = methodMahasiswa.main;
+
+//         return mahasiswa;
+//     }
+
+// let joban = Mahasiswa('ikhdan', 10);
+// let doddy = Mahasiswa('doddy', 20);
+
+//3. Constructor Declaration
+    //keyword new
+    // function Mahasiswa(nama, energi){
+    //         let mahasiswa = {};
+    //         this.nama = nama;
+    //         this.energi = energi;
+
+    //         this.makan = function(porsi){
+    //             this.energi += porsi;
+    //             console.log(`Hallo ${this.nama}, selamat makan`);
+    //         }
+
+    //         this.main = function(jam){
+    //             this.energi -= jam;
+    //             console.log(`Halo ${this.nama}, selamat bermain`);
+    //         }
+    //     }
+    //     let joban = new Mahasiswa('ikhdan', 10);
+
+
+// Object.Create
+// const methodMahasiswa = {
+//         makan :  function(porsi){
+//              this.energi += porsi;
+//              console.log(`Hallo ${this.nama}, selamat makan`);
+//          },
+        
+//          main : function(jam){
+//              this.energi -= jam;
+//              console.log(`Halo ${this.nama}, selamat bermain`);
+//          }
+//     };
+
+//     function Mahasiswa(nama, energi){
+//         let mahasiswa = Object.create(methodMahasiswa);
+//         mahasiswa.nama = nama;
+//         mahasiswa.energi = energi;
+//         mahasiswa.makan = methodMahasiswa.makan;
+//         mahasiswa.main = methodMahasiswa.main;
+
+//         return mahasiswa;
+//     }
+
+// let joban = Mahasiswa('ikhdan', 10);
+// let doddy = Mahasiswa('doddy', 20);
+
+// Prototype veri object
+// function Mahasiswa(nama, energi){
+//         this.nama = nama;
+//         this.energi = energi;
+// }
+// Mahasiswa.prototype.makan = function(porsi){
+//     this.energi += porsi;
+//     return `Hallo ${this.nama}, selamat makan`;
+// }
+
+// let joban = new Mahasiswa('joban', 10);
+
+// prototype versi class 
+// class Mahasiswa {
+//     constructor(nama, energi){
+//         this.nama = nama;
+//         this.energi = energi;
+//     }
+//     makan = function(porsi){
+//     this.energi += porsi;
+//     return `Hallo ${this.nama}, selamat makan`;
+//     }
+// }
+//     let joban = new Mahasiswa('joban', 10);
 </script>
 </body>
 </html>
