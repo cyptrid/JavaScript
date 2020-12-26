@@ -7,115 +7,59 @@
 </head>
 <body>
 <script>  
-//  Cara membuat Object pada JavaScript
-//1. Object Literal
-// Problem : tidak efektif untuk object yang banyak
-    // let mahasiswa = {
-    //     nama: 'ikhdanul widad joban',
-    //     energi: 10,
-    //     makan: function(porsi){
-    //         this.energi = this.energi + porsi;
-    //         console.log(`selamat datang ${this.nama}, selamat makan`);
-    //     }
+// Execution Context, Hoisting, & Scope
+// console.log(nama);
+// var nama = 'joban';
+
+// creation phase pada Global Context
+// nama var = undefined
+// nama function = fn()
+// hoisting = menaikkan variable ke atas
+// window = global object
+// this = window
+
+// execution phase
+
+// var nama = 'joban';
+// var umur = 20
+
+// console.log(SayHello());
+// function SayHello(){
+//     console.log(`Halo, nama saya ${name}, saya ${umur}  tahun.`)
+// }
+
+// function membuat execution context
+// yang di dalamnya terdapat creation dan execution phase
+// window
+// arguments
+// hoisting = menaikkan variable ke atas
+
+    // var nama = 'joban';
+    // var userNama = '@cyptrid';
+
+    // function cetakUrl(username){
+    //     var instagramUrl = 'https://instagram.com';
+    //     return instagramUrl + username;
     // }
 
+    // console.log(cetakUrl(userNama));
 
-    //2. Function Declaration
-//     const methodMahasiswa = {
-//         makan :  function(porsi){
-//              this.energi += porsi;
-//              console.log(`Hallo ${this.nama}, selamat makan`);
-//          },
-        
-//          main : function(jam){
-//              this.energi -= jam;
-//              console.log(`Halo ${this.nama}, selamat bermain`);
-//          }
-//     };
+    // ---------------------------------
+    // function satu(){
+    //     var nama = 'joban';
+    //     console.log(nama);
+    // }
 
-//     function Mahasiswa(nama, energi){
-//         let mahasiswa = {};
-//         mahasiswa.nama = nama;
-//         mahasiswa.energi = energi;
-//         mahasiswa.makan = methodMahasiswa.makan;
-//         mahasiswa.main = methodMahasiswa.main;
+    // function dua(){
+    //     console.log(nama);
+    // }
 
-//         return mahasiswa;
-//     }
+    // console.log(nama);
+    // var nama = 'erik';
+    // satu();
+    // dua('doddy');
+    // console.log(nama);
 
-// let joban = Mahasiswa('ikhdan', 10);
-// let doddy = Mahasiswa('doddy', 20);
-
-//3. Constructor Declaration
-    //keyword new
-    // function Mahasiswa(nama, energi){
-    //         let mahasiswa = {};
-    //         this.nama = nama;
-    //         this.energi = energi;
-
-    //         this.makan = function(porsi){
-    //             this.energi += porsi;
-    //             console.log(`Hallo ${this.nama}, selamat makan`);
-    //         }
-
-    //         this.main = function(jam){
-    //             this.energi -= jam;
-    //             console.log(`Halo ${this.nama}, selamat bermain`);
-    //         }
-    //     }
-    //     let joban = new Mahasiswa('ikhdan', 10);
-
-
-// Object.Create
-// const methodMahasiswa = {
-//         makan :  function(porsi){
-//              this.energi += porsi;
-//              console.log(`Hallo ${this.nama}, selamat makan`);
-//          },
-        
-//          main : function(jam){
-//              this.energi -= jam;
-//              console.log(`Halo ${this.nama}, selamat bermain`);
-//          }
-//     };
-
-//     function Mahasiswa(nama, energi){
-//         let mahasiswa = Object.create(methodMahasiswa);
-//         mahasiswa.nama = nama;
-//         mahasiswa.energi = energi;
-//         mahasiswa.makan = methodMahasiswa.makan;
-//         mahasiswa.main = methodMahasiswa.main;
-
-//         return mahasiswa;
-//     }
-
-// let joban = Mahasiswa('ikhdan', 10);
-// let doddy = Mahasiswa('doddy', 20);
-
-// Prototype veri object
-// function Mahasiswa(nama, energi){
-//         this.nama = nama;
-//         this.energi = energi;
-// }
-// Mahasiswa.prototype.makan = function(porsi){
-//     this.energi += porsi;
-//     return `Hallo ${this.nama}, selamat makan`;
-// }
-
-// let joban = new Mahasiswa('joban', 10);
-
-// prototype versi class 
-// class Mahasiswa {
-//     constructor(nama, energi){
-//         this.nama = nama;
-//         this.energi = energi;
-//     }
-//     makan = function(porsi){
-//     this.energi += porsi;
-//     return `Hallo ${this.nama}, selamat makan`;
-//     }
-// }
-//     let joban = new Mahasiswa('joban', 10);
 </script>
 </body>
 </html>
