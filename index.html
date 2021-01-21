@@ -7,51 +7,84 @@
 </head>
 <body>
 <script>  
-// Closure
-// function init(){
-    //     let nama = 'joban';
-    //     function tampilNama(){
-    //         console.log(nama);
+//Arrow Funciton
+// Membuat Arrow Fanction 
+    // const tampilNama = nama => 
+    //     `Halo, ${nama}`;
+    // console.log(tampilNama('joban'));
+    // jika parameternya lebih dari satu
+    // const tampilNama = (nama, waktu)=>
+    //    `Selamat ${waktu}, ${nama}`;
+    // console.log(tampilNama('joban', 'malam'));
+    // contoh di atas di sebut dengan implisit return, digunakan jika barisnya hanya return saja
+
+    // Contoh lain menggunakan (function Map)
+    // kasus : ingin menghitung jumlah huruf dari masing2 mahasiswa, lalu jumlah tersebut di simpan dalam array baru di tampilkan dalam console
+    // let mahasiswa = ['ikhdan', 'widad', 'joban'];
+    // let jumlahHuruf = mahasiswa.map(function(nama){
+    //     return nama.length;
+    // });
+    
+    // console.log(jumlahHuruf); 
+    
+    // jika menggunakan arrow function 
+    // let mahasiswa = ['ikhdan', 'widad', 'joban'];
+    // let jumlahHuruf = mahasiswa.map(nama => nama.length);
+    // console.log(jumlahHuruf); 
+
+    // jika ingin dibalikkan dalam bentuk object
+    // let mahasiswa = ['ikhdan', 'widad', 'joban'];
+    // let jumlahHuruf = mahasiswa.map( nama=> ({ nama:nama,jmlHuruf:nama.length }) );
+    // console.table(jumlahHuruf);
+
+    // Konsep This Pada Arrow Function
+    // Constructor Function
+    // const Mahasiswa = function(){
+    //     this.nama = 'joban';
+    //     this.umur = 33;
+    //     this.sayHello = function(){
+    //         console.log(`halo, nama saya ${this.nama}, dan saya ${this.umur} tahun`)
     //     }
-    //     return tampilNama;
-    // }
-    // let panggilNama = init();
-    // panggilNama();
+    // } 
+    // const joban = new Mahasiswa();
+    
+    //  Arrow function
+    // const Mahasiswa = function(){
+    //     this.nama = 'joban';
+    //     this.umur = 33;
+    //     this.sayHello = () => {
+    //         console.log(`halo, nama saya ${this.nama}, dan saya ${this.umur} tahun`)
+    //     }
+    // } 
+    // const joban = new Mahasiswa();
+   
+    // tidak ada perbedaan yang signifikan antara cunstructor function dengan arrow function
 
-    // Contoh 2
-
-    // function init(){      
-    //    return function(nama){
-    //         console.log(nama);
+    // object literal 
+    // const mhs1 = {
+    //     nama: 'joban',
+    //     umur: 33,
+    //     sayHello: () => {
+    //         console.log(`halo, nama saya ${this.nama}, dan saya ${this.umur} tahun`)
     //     }
     // }
-    // let panggilNama = init();
-    // panggilNama('joban');
+    //hasilnya akan bernilai undefined karena arrow function tidak memiliki konsep this
 
-    // Function Factory
-    // function ucapkanSalam(waktu){
-    //     return function(nama){
-    //         console.log(`halo ${nama}, selamat ${waktu}, semoga harimu menyenangkan`);
-    //     }
-    // }
-    // let selamatPagi = ucapkanSalam('pagi');
-    // let selamatSiang = ucapkanSalam('siang');
-    // let selamatMalam = ucapkanSalam('malam');
+    // Latihan
+        // const box = document.querySelector('.box');        
+        // box.addEventListener('click', function(){
+        //     let satu = 'size';
+        //     let dua = 'caption';
 
-    // selamatPagi('joban'); 
-    // console.dir(selamatMalam);
-
-    // Contoh Lain
-        // let add = (function(){
-        //     let counter = 0;
-        //     return function(){
-        //       return  ++counter;
+        //     if (this.classList.contains(satu)){
+        //         [satu, dua] = [dua, satu];
         //     }
-        // })();
-        // cunter = 100;     
-        // console.log(add());
-        // console.log(add());
-        // console.log(add());
+
+        //     this.classList.toggle(satu);
+        //     setTimeout(() =>{
+        //         this.classList.toggle(dua)
+        //     },600);
+        // })
 
 </script>
 </body>
