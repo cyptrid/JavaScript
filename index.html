@@ -7,85 +7,23 @@
 </head>
 <body>
 <script>  
-//Arrow Funciton
-// Membuat Arrow Fanction 
-    // const tampilNama = nama => 
-    //     `Halo, ${nama}`;
-    // console.log(tampilNama('joban'));
-    // jika parameternya lebih dari satu
-    // const tampilNama = (nama, waktu)=>
-    //    `Selamat ${waktu}, ${nama}`;
-    // console.log(tampilNama('joban', 'malam'));
-    // contoh di atas di sebut dengan implisit return, digunakan jika barisnya hanya return saja
+//Higher Object Function
+//    function kerjakanTugas(mataKuliah, selesai){
+//        console.log(`Mulai mengerjakan tugas ${mataKuliah}...`);
+//        selesai();
+//    }
+//    function selesai(){
+//        alert('Selesai Mengerjakan Tugas!');
+//    }
+//    kerjakanTugas('pemrograman web', selesai);
 
-    // Contoh lain menggunakan (function Map)
-    // kasus : ingin menghitung jumlah huruf dari masing2 mahasiswa, lalu jumlah tersebut di simpan dalam array baru di tampilkan dalam console
-    // let mahasiswa = ['ikhdan', 'widad', 'joban'];
-    // let jumlahHuruf = mahasiswa.map(function(nama){
-    //     return nama.length;
-    // });
-    
-    // console.log(jumlahHuruf); 
-    
-    // jika menggunakan arrow function 
-    // let mahasiswa = ['ikhdan', 'widad', 'joban'];
-    // let jumlahHuruf = mahasiswa.map(nama => nama.length);
-    // console.log(jumlahHuruf); 
-
-    // jika ingin dibalikkan dalam bentuk object
-    // let mahasiswa = ['ikhdan', 'widad', 'joban'];
-    // let jumlahHuruf = mahasiswa.map( nama=> ({ nama:nama,jmlHuruf:nama.length }) );
-    // console.table(jumlahHuruf);
-
-    // Konsep This Pada Arrow Function
-    // Constructor Function
-    // const Mahasiswa = function(){
-    //     this.nama = 'joban';
-    //     this.umur = 33;
-    //     this.sayHello = function(){
-    //         console.log(`halo, nama saya ${this.nama}, dan saya ${this.umur} tahun`)
-    //     }
-    // } 
-    // const joban = new Mahasiswa();
-    
-    //  Arrow function
-    // const Mahasiswa = function(){
-    //     this.nama = 'joban';
-    //     this.umur = 33;
-    //     this.sayHello = () => {
-    //         console.log(`halo, nama saya ${this.nama}, dan saya ${this.umur} tahun`)
-    //     }
-    // } 
-    // const joban = new Mahasiswa();
-   
-    // tidak ada perbedaan yang signifikan antara cunstructor function dengan arrow function
-
-    // object literal 
-    // const mhs1 = {
-    //     nama: 'joban',
-    //     umur: 33,
-    //     sayHello: () => {
-    //         console.log(`halo, nama saya ${this.nama}, dan saya ${this.umur} tahun`)
+// alasan menggunakan higher object function, supaya kode lebih sederhana, contoh:
+    // function repeat(n, action){
+    //     for(let i = 0 ; i< n; i++){
+    //         action(i); 
     //     }
     // }
-    //hasilnya akan bernilai undefined karena arrow function tidak memiliki konsep this
-
-    // Latihan
-        // const box = document.querySelector('.box');        
-        // box.addEventListener('click', function(){
-        //     let satu = 'size';
-        //     let dua = 'caption';
-
-        //     if (this.classList.contains(satu)){
-        //         [satu, dua] = [dua, satu];
-        //     }
-
-        //     this.classList.toggle(satu);
-        //     setTimeout(() =>{
-        //         this.classList.toggle(dua)
-        //     },600);
-        // })
-
+    // repeat(3, alert);
 </script>
 </body>
 </html>
