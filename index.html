@@ -3,27 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>LATIHAN JAVASCRIPT</title>
 </head>
 <body>
-<script>  
-//Higher Object Function
-//    function kerjakanTugas(mataKuliah, selesai){
-//        console.log(`Mulai mengerjakan tugas ${mataKuliah}...`);
-//        selesai();
-//    }
-//    function selesai(){
-//        alert('Selesai Mengerjakan Tugas!');
-//    }
-//    kerjakanTugas('pemrograman web', selesai);
+   <h3>My Videos</h3>
+   <ul>
+       <li data-duration="15:27">Teknik Podomoro</li>
+       <li data-duration="11:18">
+        JAVASCRIPT LANJUTAN | Higher Order Function</li>
+       <li data-duration="21:40">JAVASCRIPT LANJUTAN | This pada Arrow Function</li>
+       <li data-duration="19:38">Webiste Penipu</li>
+       <li data-duration="12:10">JAVASCRIPT LANJUTAN | Arrow Function</li>
+       <li data-duration="20:43">JAVASCRIPT LANJUTAN | Closure</li>
+       <li data-duration="14:30">#TANYAPADIKA EP005</li>
+       <li data-duration="26:38">JAVASCRIPT LANJUTAN | Execution Content</li>
+       <li data-duration="17:33">JAVASCRIPT LANJUTAN | Prototype</li>
+       <li data-duration="10:39">JAVASCRIPT LANJUTAN | Object.create()</li>
+       <li data-duration="17:31">JAVASCRIPT LANJUTAN | Object (Revisited)</li>
+       <li data-duration="14:25">5 Tips Bertanya Ketika Error</li>
+   </ul>
 
-// alasan menggunakan higher object function, supaya kode lebih sederhana, contoh:
-    // function repeat(n, action){
-    //     for(let i = 0 ; i< n; i++){
-    //         action(i); 
-    //     }
-    // }
-    // repeat(3, alert);
+   <h3>My Playlist</h3>
+   <ol>
+       <li>
+           <h4>JavaScript Lanjutan</h4>
+           <p>Jumlah Video : <span class="jumlah-video"></span></p>
+           <p>Total Durasi : <span class="total-durasi"></span></p>
+       </li>
+   </ol>
+<script>  
+// ambil semua elemen video
+   const videos = Array.from(document.querySelectorAll('[data-duration]'));
+// pilih hanya yang 'JAVASCRIPT LANJUTAN'
+   let jsLanjut = videos.filter(video => video.textContent.includes('JAVASCRIPT LANJUTAN'))
+
+   // ambil durasi masing2 video
+   .map(item => item.dataset.duration)
+
+   // ubah durasi menjadi float, ubah durasi menit, menjadi detik
+   .map(waktu => {
+        // 10:30 -> [10, 30] split
+        const parts = waktu.split(':').map(part => parseFloat(part));
+        return (parts[0] * 60) + parts[1];
+   })
+   // jumlahkan semua detik
+   .reduce((total, detik) => total + detik);
+   
+   // ubah formatnya jadi jam, menit, detik
+   const jam = Math.floor(jsLanjut / 3600);
+   jsLanjut = jsLanjut - jam * 3600;
+   const menit = Math.floor(jsLanjut/ 60);
+   const detik = jsLanjut - menit * 60;
+
+   // simpan di DOM
+   const pdurasi = document.querySelector('.total-durasi');
+   pdurasi.textContent = `${jam} Jam, ${menit} menit, ${detik} detik.`;
+
+   const jmlVideo = videos.filter(video => video.textContent.includes('JAVASCRIPT LANJUTAN')).length
+   const pJmlVideo = document.querySelector('.jumlah-video');
+   pJmlVideo.textContent = `${jmlVideo} Video`;
 </script>
 </body>
 </html>
