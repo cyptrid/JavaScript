@@ -1,81 +1,93 @@
-// const xhr = new XMLHttpRequest();
-// xhr.onreadystatechange = function(){
-//     if(xhr.status === 200){
-//         if(xhr.readyState === 4){
-//             console.log(JSON.parse(xhr.response));
+// $('.search-button').on('click', function(){
+//     $.ajax({
+//         url: 'http://www.omdbapi.com/?apikey=b45dfb17&s=' + $('.input-keyword').val(),
+//         success : results  => {
+//             const movies = results.Search;
+//             let cards = '';
+//             movies.forEach(m => {
+//                 cards += showCards(m);
+//             });
+//         $('.movie-container').html(cards);
+//             // ketika tombol detail di-klik
+//             $('.modal-detail-button').on('click', function(){
+//                 $.ajax({
+//                     url : 'http://www.omdbapi.com/?apikey=b45dfb17&i=' + $(this).data('imdbid'),
+//                     success : m => {
+//                         const movieDetail = showMovieDetail(m);
+//                             $('.modal-body').html(movieDetail);
+//                     },
+//                     error: (e)=>{
+//                         console.log(e.responsText)}
+//                 });
+//             });
+//         },
+//         error: (e)=>{
+//             console.log(e.responsText)
 //         }
-//     } else {
-//         console.log(xhr.responseText);
-//     }
-// }
-// xhr.open('get', 'http://www.omdbapi.com/?apikey=b45dfb17&s=avenger');
-// xhr.send();
-
-// Promise
-// Object yang merepresentasikan keberhasilan / kegagalan sebuah event yang asynchronous di masa yang akan datang
-// janji (terpenuhi / ingkar)
-// states (fulfilled / rejected / pending)
-// callback (resolve / reject / finally)
-// aksi ( then / catch)
-
-// contoh 1
-// let ditepati = true;
-// const janji1 = new Promise((resolve, reject) => {
-//     if (ditepati) {
-//         resolve('Janji telah ditepati!');
-//     }else {
-//         reject('Ingkar Janji...');
-//     }
+//     });
 // });
 
-// janji1
-// .then(response => console.log('Ok : ' + response))
-// .catch(response => console.log('NOT OK : ' + response));
 
-// contoh 2
-// let ditepati = true;
-// const janji2 = new Promise((resolve, reject) => {
-//     if(ditepati){
-//         setTimeout(() => {
-//             resolve('Ditepati setelah beberapa waktu!');
-//         }, 2000);
-//     }else {
-//         setTimeout(() => {
-//             resolve('tidak ditepati setelah beberapa waktu!');
-//         }, 2000);
-//     }
-// });
+// Fetch
+const searchButton = document.querySelector('.search-button');
+searchButton.addEventListener('click', function() {
 
-// console.log('mulai');
-// janji2
-// .then(response => console.log('Ok : ' + response))
-// .catch(response => console.log('NOT OK : ' + response));
-// console.log('selesai');
+    const inputKeyword = document.querySelector('.input-keyword');
+    fetch('http://www.omdbapi.com/?apikey=b45dfb17&s=' + inputKeyword.value)
+    .then(response => response.json())
+    .then(response => {
+        const movies = response.Search;
+        let cards = '';
+        movies.forEach(m => cards += showCards(m));
+        const movieContainer = document.querySelector('.movie-container');
+        movieContainer.innerHTML = cards;     
 
-// Promise,all()
-const film = new Promise(resolve => {
-    setTimeout(() => {
-        resolve([{
-            judul : 'Avengers',
-            sutradara : 'Joban',
-            pemeran : 'joban1,  Joban2'
-        }])
-    }, 1000);
+        // ketika tombol detail di-klik
+        const modalDetailButton = document.querySelectorAll('.modal-detail-button');
+        modalDetailButton.forEach(btn => {
+            btn.addEventListener('click', function (){
+              const imdbid = this.dataset.imdbid;
+              fetch('http://www.omdbapi.com/?apikey=b45dfb17&i=' + imdbid)
+              .then(response => response.json())
+              .then(m => {
+                  const movieDetail = showMovieDetail(m);
+                  const modalBody = document.querySelector('.modal-body');
+                  modalBody.innerHTML = movieDetail;
+              })
+            });
+        })
+    });
 });
 
-const cuaca = new Promise(resolve => {
-    setTimeout(() => {
-        resolve([{
-            kota : 'Bogor',
-            temp : 26,
-            kondisi : 'Cerah Berawan'
-        }]);
-    }, 500);
-});
 
-Promise.all([film, cuaca])
-.then(response => {
-    const [film, cuaca] = response;
-    console.log(film);
-    console.log(cuaca);
-});
+function showCards(m) {
+    return `<div class="col-md-4 mt-3">
+            <div class="card">
+                <img src="${m.Poster}" class="card-img-top" >
+                <div class="card-body">
+                <h5 class="card-title">${m.Title}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">${m.Year}</h6>
+                <a href="#" class="btn btn-primary modal-detail-button" data-bs-toggle="modal" data-bs-target="#movieDetailModal" data-imdbid="${m.imdbID}">Show Details</a>
+                </div>
+            </div>
+        </div>`
+}
+
+function showMovieDetail(m){
+    return `<div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="${m.Poster}" alt="" class="img-fluid">
+            </div>
+            <div class="col-md">
+                <ul class="list-group">
+                    <li class="list-group-item"><h4>${m.Title} ${m.Year}</h4></li>
+                    <li class="list-group-item"><strong>Direcotr : ${m.Director}</strong></li>
+                    <li class="list-group-item"><strong>Actors : ${m.Actors}</strong></li>
+                    <li class="list-group-item"><strong>Writer : ${m.Writer}</strong></li>
+                    <li class="list-group-item"><strong>Plot : ${m.Plot}</strong></li>
+                </ul>
+            </div>
+        </div>
+        </div>`
+}
