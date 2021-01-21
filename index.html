@@ -3,64 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>LATIHAN JAVASCRIPT</title>
-    <style>
-        body{
-            background-color: salmon;
-            text-align: center;
-        }
-        .nama{
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 80px;
-            color: white;
-        }
-
-        .nama span{
-            display: inline-block;
-            transition: .3s;
-            cursor: pointer;
-        }
-        .nama span:hover{
-            transform: scale(2) translateY(-20px);
-        }
-    </style>
 </head>
 <body>
-    <ul>
-        <!-- <li>ikhdan</li>
-        <li>widad</li>
-        <li>joban</li> -->
-        <br><br><br>
-        <h1 class="nama">Ikhdan</h1>
-    </ul>
 <script>  
-    // Spread Operator 
-    // memecah iterable menjadi single element
-    // const mhs = ['ikhdan', 'widad', 'joban'];
-    // console.log(...mhs);
+  //    function myFunc(){
+        //return a = ${a}, b = ${b}, myArgs = ${myArgs};
+        //return myArgs;
+        //  return Array.from(arguments);
 
-    // Menggabungkan 2 array
-    // const mhs = ['ikhdanul', 'widad', 'joban'];
-    // const dosen = ['zyan', 'zuhri', 'joban'];
-    // const orang = [...mhs, 'ekal', ...dosen];
-    // console.log(orang);
+        // -----------------------
 
-    // meng=copy array
-    // const mhs = ['ikhdan', 'widad', 'joban'];
-    // const mhs1 = [...mhs];
-    // mhs1[0] = 'fajar';
-    // console.log(mhs1);
+        //pakai spread operator
+        // return [...arguments];
+        // }
+        // console.log(myFunc(1, 2, 3, 4, 5));
 
-    // contoh soal
-    // const liMhs = document.querySelectorAll('li');
-    // const mhs = [...liMhs].map(m => m.textContent);
-    // console.log(mhs);
-    
-    // latihan 
-    const nama = document.querySelector('.nama');
-    const huruf = [...nama.textContent].map(h => `<span>${h}</span>`).join('');
-    nama.innerHTML = huruf;
+        
+        // function jumlahkan(...angka){
+            // let total = 0;
+            // for(const a of angka){
+            // total += a;
+            // }
+            // return total;
+
+            // Jika ingin menggunakan Higher Order Function -> reduce
+            // return angka.reduce((a, b) => a + b);
+            // }
+            // console.log(jumlahkan(1, 2, 3, 4, 5));
+        // ----------------------
+        // Array Destructuring                
+        // const kelompok1 = ['Ikhdanul', 'Widad', 'Joban'];
+        // const [ketua, wakil, ...anggota] = kelompok1;
+        // console.log(ketua);
+
+        // Object Destructuring
+        // const team = {
+        //   pm : 'joban',
+        //   frontEnd1 : 'widad',
+        //   frontEnd2 : 'widad',
+        //   backEnd : 'ikhdan'
+        //      }
+        // const {pm, ...myTeam} = team;
+
+        // Filtering
+        // function filterBy(type, ...values){
+        // return values.filter(v => typeof v === type);
+        // }
+        // console.log(filterBy('string', 1, 2, 'user2', false, 10, true, 'user3'));
 
 </script>
 </body>
