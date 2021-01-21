@@ -3,55 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>LATIHAN JAVASCRIPT</title>
 </head>
 <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script>  
-  //    function myFunc(){
-        //return a = ${a}, b = ${b}, myArgs = ${myArgs};
-        //return myArgs;
-        //  return Array.from(arguments);
+    // CallBack
+    // function halo(nama){
+    //     alert(`Halo, ${nama}`);
+    // }
 
-        // -----------------------
+    // function tampilkanPesan(callback){
+    //     const nama = prompt('Masukkan Nama :' );
+    //     callback(nama);
+    // }
+    // tampilkanPesan(halo);
 
-        //pakai spread operator
-        // return [...arguments];
+    // const mhs = [
+    //     {
+    //         "nama"  : "ikhdan",
+    //         "nrp"   : "042065278",
+    //         "email" : "jikhdan@gmail.com",
+    //         "idDosenWali" : 1
+    //     },
+    //     {
+    //         "nama"  : "widad",
+    //         "nrp"   : "042065279",
+    //         "email" : "widad@gmail.com",
+    //         "idDosenWali" : 2
+    //     },
+    //     {
+    //         "nama"  : "joban",
+    //         "nrp"   : "042065277",
+    //         "email" : "joban@gmail.com",
+    //         "idDosenWali" : 3
+    //     }
+    // ];
+    //     console.log('mulai');
+    //     mhs.forEach(m => {
+    //         for(let i = 0; i < 1000000; i++){
+    //             let date = new Date();
+    //         }
+    //         console.log(m.nama)
+    //     });
+    //     console.log('selesai');
+
+    // Anonymous Function
+        // function tampilkanPesan(callback){
+        // const nama = prompt('Masukkan Nama :' );
+        // callback(nama);
         // }
-        // console.log(myFunc(1, 2, 3, 4, 5));
-
-        
-        // function jumlahkan(...angka){
-            // let total = 0;
-            // for(const a of angka){
-            // total += a;
+        // tampilkanPesan((nama) => alert(`Halo, ${nama}`));
+     
+    // Asynchronous Callback
+            // Vanilla JavaScript
+            // function getDataMahasiswa(url, success, error){
+            //     let xhr = new XMLHttpRequest();
+                
+            //     xhr.onreadystatechange = function(){
+            //         if(xhr.readyState === 4){
+            //             if(xhr.status === 200){
+            //                 success(xhr.response);
+            //             }else if(xhr.status === 404){
+            //                 error();
+            //             }
+            //         }
+            //     }
+            //     xhr.open('get', url);
+            //     xhr.send();
             // }
-            // return total;
+            // console.log('mulai');
+            // getDataMahasiswa('mahasiswa.json', result => {
+            //    const mhs = JSON.parse(result);
+            //    mhs.forEach(m => console.log(m.nama));
+            // }, () => {});
+            // console.log('selesai');
 
-            // Jika ingin menggunakan Higher Order Function -> reduce
-            // return angka.reduce((a, b) => a + b);
-            // }
-            // console.log(jumlahkan(1, 2, 3, 4, 5));
-        // ----------------------
-        // Array Destructuring                
-        // const kelompok1 = ['Ikhdanul', 'Widad', 'Joban'];
-        // const [ketua, wakil, ...anggota] = kelompok1;
-        // console.log(ketua);
-
-        // Object Destructuring
-        // const team = {
-        //   pm : 'joban',
-        //   frontEnd1 : 'widad',
-        //   frontEnd2 : 'widad',
-        //   backEnd : 'ikhdan'
-        //      }
-        // const {pm, ...myTeam} = team;
-
-        // Filtering
-        // function filterBy(type, ...values){
-        // return values.filter(v => typeof v === type);
-        // }
-        // console.log(filterBy('string', 1, 2, 'user2', false, 10, true, 'user3'));
-
+            // JQuery
+            console.log('mulai');
+            $.ajax({
+               url : 'mahasiswa.json',
+               success: (mhs) =>{
+                   mhs.forEach(m => console.log(m.nama));
+               } ,
+               error: (e) => {
+                    console.log(e.responseText);
+               }
+            });
+            console.log('selesai');
 </script>
 </body>
 </html>
