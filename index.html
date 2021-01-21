@@ -7,58 +7,51 @@
 </head>
 <body>
 <script>  
-// Execution Context, Hoisting, & Scope
-// console.log(nama);
-// var nama = 'joban';
-
-// creation phase pada Global Context
-// nama var = undefined
-// nama function = fn()
-// hoisting = menaikkan variable ke atas
-// window = global object
-// this = window
-
-// execution phase
-
-// var nama = 'joban';
-// var umur = 20
-
-// console.log(SayHello());
-// function SayHello(){
-//     console.log(`Halo, nama saya ${name}, saya ${umur}  tahun.`)
-// }
-
-// function membuat execution context
-// yang di dalamnya terdapat creation dan execution phase
-// window
-// arguments
-// hoisting = menaikkan variable ke atas
-
-    // var nama = 'joban';
-    // var userNama = '@cyptrid';
-
-    // function cetakUrl(username){
-    //     var instagramUrl = 'https://instagram.com';
-    //     return instagramUrl + username;
+// Closure
+// function init(){
+    //     let nama = 'joban';
+    //     function tampilNama(){
+    //         console.log(nama);
+    //     }
+    //     return tampilNama;
     // }
+    // let panggilNama = init();
+    // panggilNama();
 
-    // console.log(cetakUrl(userNama));
+    // Contoh 2
 
-    // ---------------------------------
-    // function satu(){
-    //     var nama = 'joban';
-    //     console.log(nama);
+    // function init(){      
+    //    return function(nama){
+    //         console.log(nama);
+    //     }
     // }
+    // let panggilNama = init();
+    // panggilNama('joban');
 
-    // function dua(){
-    //     console.log(nama);
+    // Function Factory
+    // function ucapkanSalam(waktu){
+    //     return function(nama){
+    //         console.log(`halo ${nama}, selamat ${waktu}, semoga harimu menyenangkan`);
+    //     }
     // }
+    // let selamatPagi = ucapkanSalam('pagi');
+    // let selamatSiang = ucapkanSalam('siang');
+    // let selamatMalam = ucapkanSalam('malam');
 
-    // console.log(nama);
-    // var nama = 'erik';
-    // satu();
-    // dua('doddy');
-    // console.log(nama);
+    // selamatPagi('joban'); 
+    // console.dir(selamatMalam);
+
+    // Contoh Lain
+        // let add = (function(){
+        //     let counter = 0;
+        //     return function(){
+        //       return  ++counter;
+        //     }
+        // })();
+        // cunter = 100;     
+        // console.log(add());
+        // console.log(add());
+        // console.log(add());
 
 </script>
 </body>
