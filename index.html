@@ -1,3 +1,4 @@
+For.. of For..in
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,136 +8,83 @@
     <title>LATIHAN JAVASCRIPT</title>
 </head>
 <body>
-   
+    <ul>
+        <li class="nama">Ikhdan</li>
+        <li class="nama">Widad</li>
+        <li class="nama">Joban</li>
+    </ul>
+
 <script>  
-//  Destruction Variable / Assignment
-// Destruction Array
+// for ..of
+// array
+// const mhs = ['joban', 'erik', 'doddy'];
+    // Menggunakan for
+    // for(let i = 0; i < mhs.length; i++){
+    //     console.log(mhs[i]);
+    // }
 
-// const perkenalan = ['Halo', 'Nama', 'Saya', 'Joban'];
-// const [salam, satu, dua, nama] = perkenalan
-// skipping items
-// const [salam, , , nama] = perkenalan
-// Swap items
-// let a = 1;
-// let b = 2;
-// console.log(a);
-// console.log(b);
-// [a, b] = [b, a];
-// console.log(a);
-// console.log(b);
+    // Menggunakan forEach
+    // mhs.forEach(m => console.log(m));
 
-// return value pada function
-// function coba(){
-//     return [1,2];
-// }
-// const [a, b] = coba();
-// console.log(a);
+    // Menggunakan for ..of
+    // for( const m of mhs){
+    //     console.log(m);
+    // }
 
-// Rest Parameter
-// const [a, ...values] = [1,2,4,5,6];
-// console.log(values)
+    // string
+    // const nama = 'joban';
+    // for( const n of nama){
+    //     console.log(n);
+    // }
 
-// Destructuring Object
-// const mhs = {
-//     nama : 'ikhdan',
-//     umur : 20
-// }
-// const {nama, umur} = mhs;
-// console.log(nama);
+    // const mhs = ['joban', 'erik', 'doddy'];
+    // Menggunakan forEach
+    // mhs.forEach((m, i)=> {
+    //     console.log(`${m} adalah mahasiswa ke ${i + 1}`);
+    // });
+    // // Menggunakan for ..of
+    // for(const [i, m] of mhs.entries()){
+    //     console.log(`${m} adalah mahasiswa ke ${i + 1}`);
+    // }
 
+    // NodeList
+    const liNama = document.querySelectorAll('.nama');
+        // pakai forEach
+        // liNama.forEach(n => console.log(n.innerHTML));
+        // pakai for ..of
+        // for (n of liNama){
+        //     console.log(n.innerHTML);
+        // }
 
-// Assignment tanpa deklarasi object 
-// ({nama, umur} = { nama : 'ikhdan', umur : 20});
-// console.log(nama);
+        // Arguments
+        // function jumlahkanAngka(){
+            // reduce dan forEach tidak bisa looping arguments
+            // return  [1,2,3,4,5].reduce((a, i) => a + i);
+            // arguments.forEach(a => jumlah += a);
 
-// Assign ke variabel baru
-// const mhs = {
-//     nama : 'ikhdan',
-//     umur : 20
-// }
-// const {nama: a, umur: u} = mhs;
-// console.log(u);
+        //     let jumlah = 0;
+        //     // for ..of
+        //     for(a of arguments){
+        //         jumlah += a;
+        //     }
+        //     return jumlah;
 
-// Memberikan default value
-// const mhs = {
-//     nama : 'ikhdan',
-//     umur : 20
-// }
-// const {nama, umur, email = 'email@default.com'} = mhs;
-// console.log(email);
+        // }
+        // console.log(jumlahkanAngka(1, 2, 3, 4, 5));
 
-// Memberikan nilai default + assign ke variabel baru
-// const mhs = {
-//     nama : 'ikhdan',
-//     umur : 20
-// }
-// const {nama: n, umur: u, email: e = 'email@default.com'} = mhs;
-// console.log(e);
+        // for..in
+        // const mhs = {
+        //     nama: 'joban',
+        //     umur: 20,
+        //     email: 'jikhdan@gmail.com'
+        // }
 
-// Rest Parameter
-// const mhs = {
-//     nama : 'ikhdan',
-//     umur : 20
-// }
-// const {nama, ...value} = mhs;
-// console.log(value);
+        // for(m in mhs){
+        //     console.log(m);
+        // }
 
-// Mengambil field pada object, setelah dikirim sebagai parameter untuk function 
-// const mhs = {
-//     id : 123,
-//     nama : 'ikhdan',
-//     umur : 20,
-//     email : 'jikhdan@gmail.com'
-// }
-// function getIdMhs({id}){
-//     return id;
-// }
-// console.log(getIdMhs(mhs));
-
-// Destructuring
-// function penjumlahanPerkalian(a,b){
-//     return [a + b, a * b];
-// }
-// const [jumlah, kali] = penjumlahanPerkalian(2,3);
-// console.log(jumlah);
-// console.log(kali);
-
-// contoh 2
-// function kalkulasi(a,b){
-//     return [a + b, a - b, a * b, a / b];
-// }
-// const [tambah, kurang, kali, bagi = 'tidak ada'] = kalkulasi(2,3);
-// console.log(bagi);
-
-// contoh 3 : jika ingin urutan tidak berpengaruh, gunakan object
-// function kalkulasi(a,b){
-//     return{
-//         tambah: a + b,
-//         kurang: a - b,
-//         kali: a * b,
-//         bagi: a / b
-//     }
-// }
-
-// const {bagi, tambah, kali, kurang} = kalkulasi(2,3);
-// console.log(kurang);
-
-
-// Destructuring function arguments
-// const mhs1 = {
-//     nama: 'joban',
-//     umur: 20,
-//     email: 'jikhdan@gmail.com',
-//     nilai: {
-//         tugas: 90,
-//         uts: 85,
-//         uas: 75
-//     }
-// }
-// function cetakMhs({nama, umur, nilai:{tugas, uts, uas}}){
-//     return `Halo, nama saya ${nama}, umur saya ${umur} tahun, dan nilai uas saya ${uas}`;
-// }
-// console.log(cetakMhs(mhs1));
+        // jika ingin looping property dari object gunakan for..in
+        // jika ingin looping isi array gunakan for..of
 </script>
 </body>
 </html>
